@@ -1,0 +1,15 @@
+{
+    "name": "brflo/blog_portofolio",
+    "authors": [
+        {
+            "name": "Florian Brouard",
+            "email": "madurba.c@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "require": {
+        "twig/twig": "~1.0"
+    }
+}
