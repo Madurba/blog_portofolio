@@ -1,0 +1,82 @@
+{% extends 'template.twig'%}
+{% block title %}Admin interface{% endblock %}
+{% block content %}
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1>Admin interface</h1>
+            <p>
+                <a href="index.php">Accueil</a>
+            </p>
+        </div>
+    </header>
+    <section class="mb-0">
+        <div class="container">
+            
+                <p>
+                    <a href="/admin-post" class="btn btn-success">Ajouter un article</a>
+                </p>
+                
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Titre</td>
+                        <td>Dernière modification</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data_post in data_posts %}
+                        <tr>
+                            <td>
+                                {{data_post.id}}</td>
+                            <td>
+                                {{data_post.title}}</td>
+                            <td>
+                                {{data_post.creationDate}}</td>
+                            <td>
+                                <a class="btn btn-primary mb-1" href="admin-previewPost-{{data_post.id}}">Modifier</a>
+                                <form action="/admin-delete" method="post">
+                                    <input type="hidden" name="postId" value="{{data_post.id}}">
+                                        <button class="btn btn-danger mb-1" href="" type="submit">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Auteur</td>
+                            <td>Commentaire</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data_comment in data_comments %}
+                            <tr>
+                                <td>
+                                    {{data_comment.id}}</td>
+                                <td>
+                                    {{data_comment.author}}</td>
+                                <td>
+                                    {{data_comment.comment}}</td>
+                                <td>
+                                    <form action="/admin-commentValid" method="post">
+                                        <input type="hidden" name="id" value="{{data_comment.id}}">
+                                            <button class="btn btn-success" href="" type="submit">Valider</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        {% endblock %}
+    

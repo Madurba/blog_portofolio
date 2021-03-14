@@ -1,0 +1,91 @@
+{% extends 'template.twig'%}
+{% block title %}Tous les articles{% endblock %}
+{% block content %}
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1>Suivez-moi au quotidien !</h1><br />
+            <p>Les derniers billets du blog</p>
+        </div>
+    </header>
+    <section class="mb-0">
+        <div class="container">
+            <div class="row">
+                {% for listpost in listposts %}
+                    <div class="col-sm-12 col-md-6">
+                        
+                            <h3 class="text-center text-uppercase text-secondary mb-4">
+                                {{listpost.title}}
+                            </h3>
+                            <div>
+                                <span class="label label-default mb-5">
+                                    <em>
+                                        le
+                                        {{listpost.creationDate}}</em>
+                                </span>
+                                {{listpost.chapo | raw}}
+                                <br/>
+                                <p class="lead">
+                                    <em>
+                                        <a class="btn btn-primary mb-1" href="article-{{listpost.id}}">Lire la suite...</a>
+                                    </em>
+                                </p>
+                            
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {#
+                        Parameters:
+                        * pagestotales (int): number of pages
+                        * pagecourante (int): current pages
+                        #}
+    {% spaceless %}
+        {% if pagestotales > 1 %}
+            {# Number of page around current page+1 #}
+            {% set nearbyPagesLimit = 3 %}
+            <section class="mb-0">
+                <div class="container">
+                    <nav class="pagination">
+                        <ul class="pagination">
+                            {% if pagecourante != 1 %}
+                                <li>
+                                    <a class="page-link" href="?page={{ 1 }}">Début</a>
+                                </li>
+                            {% endif %}
+                            {% for i in 1..pagestotales %}
+                                {% if 0 == (pagecourante - nearbyPagesLimit) - loop.index %}
+                                    {# dot before #}
+                                    <li class="page-item disabled">
+                                        <a href="#">...</a>
+                                    </li>
+                                    {% elseif 0 == (pagecourante + nearbyPagesLimit) - loop.index %}
+                                    {# dot after #}
+                                    <li class="page-item disabled">
+                                        <a href="#">...</a>
+                                    </li>
+                                    {% elseif 0 < (pagecourante - nearbyPagesLimit) - loop.index %}
+                                    {# hide all before #}
+                                    {% elseif 0>
+                    (pagecourante + nearbyPagesLimit) - loop.index %}
+                                    {# hide all after #}
+                                    {% else %}
+                                    <li {% if pagecourante==loop.index %} class="page-item active" {% endif %}>
+                                        <a class="page-link" href="?page={{loop.index }}">
+                                            {{ loop.index }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if pagecourante != pagestotales %}
+                                <li>
+                                    <a class="page-link" href="?page={{pagestotales}}">Fin</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}{% endspaceless %}{% endblock %}

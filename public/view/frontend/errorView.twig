@@ -1,0 +1,15 @@
+{% extends 'template.twig'%}
+{% block title %}Oups ! Erreur 404{% endblock %}
+{% block content %}
+<header class="masthead bg-primary text-white text-center">
+  <div class="container">
+    <h1>Erreur Page</h1>
+    <p><a href="index.php">Accueil</a></p>
+  </div>
+</header>
+<section class="mb-0">
+  <div class="container">
+    <h3>Erreur : {{data_message}}</h3>
+  </div>
+</section>
+{% endblock %}

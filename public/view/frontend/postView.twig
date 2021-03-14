@@ -1,0 +1,92 @@
+{% extends 'template.twig'%}
+{% block title %}Article{% endblock %}
+{% block content %}
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container">
+            <h1>Article</h1>
+            <p>
+                <a href="/blog">Retour au Blog</a>
+            </p>
+        </div>
+    </header>
+    <section class="portfolio" id="portfolio">
+        <div class="container mb-5">
+            <h3 class="text-center text-uppercase text-secondary mb-5">
+                {{data_post.title}}
+            </h3>
+            <span class="label label-default mb-5">
+                Par :
+                {{data_post.author}}
+                <em>
+                    le
+                    {{data_post.creationDate}}</em>
+            </span>
+            <p class="lead">
+                {{data_post.content | raw}}
+            </p>
+        </div>
+        <h3 class="text-center text-uppercase text-secondary mb-5">Commentaires</h3>
+        {% for data_comment in data_comments %}
+            <div class="container mb-5">
+                <p>
+                    <strong>
+                        {{data_comment.author}}
+                    </strong>
+                    le
+                    {{data_comment.commentDate}}
+                    {% if data_user.id == data_comment.idUser and data_user.status != 1 %}
+                        (<a href="user-comment-{{data_comment.id}}">Modifier</a>)
+                    {% endif %}
+                    {% if data_user.status == 1 %}
+                        (<a href="admin-comment-{{data_comment.id}}">Modifier</a>)
+                        (<a href="admin-deleteComment-{{data_comment.id}}">Supprimer</a>)
+                    {% endif %}
+                </p>
+                <p>
+                    {{data_comment.comment}}
+                </p>
+            </div>
+        {% endfor %}
+    </section>
+    {% if data_user.id > 0 %}
+        <section id="contact">
+            <div class="container">
+                <h5 class="text-center text-uppercase text-secondary mb-0">Ajouter un commentaire</h5>
+                <hr class="star-dark mb-5">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <form action="/user-addComment-{{data_post.id}}" method="post">
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label for="author">Auteur</label>
+                                        <input class="form-control" type="text" id="author" name="author" value="{{data_user.username}}" required="required"/>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                        <label>Commentaire</label>
+                                        <textarea class="form-control" id="message" name="comment" placeholder="Commentaire" required="required" rows="5"></textarea>
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div id="success"></div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <section id="contact">
+                <div class="container">
+                    <h5 class="text-center text-uppercase text-secondary mb-0">
+                        <a href="/login">Connectez-vous</a>
+                        pour
+                                        commenter</h5>
+                </div>
+            {% endif %}
+        </section>
+    {% endblock %}
