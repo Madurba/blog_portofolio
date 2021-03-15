@@ -8,6 +8,12 @@ if (empty($_GET['url'])) {
     $_GET['url'] = '/';
 }
 
+// Active debug mode
+
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
 $router = new App\Router\Router($_GET['url']);
 try {
     // FRONT INTERFACE

@@ -199,7 +199,7 @@ class FrontendController
             $email = strip_tags(htmlspecialchars($_POST['email']));
             $message = strip_tags(htmlspecialchars($_POST['message']));
 
-            $this->formManager->fromTraiment($nom, $prenom, $email, $message);
+            $this->formManager->formProcessing($nom, $prenom, $email, $message);
             $_SESSION['flash']['success'] = 'Votre message a bien été envoyé.';
         }
         header('Location: /');
@@ -210,7 +210,7 @@ class FrontendController
      */
     public function cvFlo()
     {
-        $file = 'public/pdf/CV_Florian_Brouard.pdf';
+        $file = 'public/uploads/CV_Florian_Brouard.pdf';
         if (file_exists($file)) {
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');

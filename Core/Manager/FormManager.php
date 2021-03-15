@@ -15,14 +15,14 @@ class FormManager
      * @param string $email
      * @param string $message
      */
-    public function fromTraiment($nom, $prenom, $email, $message)
+    public function formProcessing($nom, $prenom, $email, $message)
     {
         $entetemail = "From: FlowDesign blog <madurba.c@gmail.com>\r\n";
         $entetemail .= 'Reply-To: '.$email."\n";
         $entetemail .= 'X-Mailer: PHP/'.phpversion()."\n";
         $entetemail .= "Content-Type: text/plain; charset=utf8\r\n";
         $objet = 'Confirmation de la réception de votre message';
-        $message_email = 'Nous avons bien reçu votre message';
+        $message_email = 'J\'ai bien reçu votre message, si c\'est une question, je vous réponds très vite ! Merci 🤓';
 
         mail($email, $objet, $message_email, $entetemail);
 

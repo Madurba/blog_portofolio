@@ -33,7 +33,6 @@ class Router
         if ($name) {
             $this->namedRoutes[$name] = $route;
         }
-
         return $route;
     }
 
@@ -55,7 +54,6 @@ class Router
         if (!isset($this->namedRoutes[$name])) {
             throw new \Exception('No route matches this name');
         }
-
         return $this->namedRoutes[$name]->getUrl($params);
     }
 }
