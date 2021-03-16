@@ -6,7 +6,7 @@ use App\Model\User;
 use App\Service\Database;
 
 /**
- * LoginCompteManagaer regroupe toutes les requêtes liées a l'identification, l'inscription et l'admin de USER.
+ * Regroupe toutes les requêtes liées a l'identification, l'inscription et l'admin de USER.
  */
 class LoginAccountManager extends Database
 {
@@ -114,12 +114,12 @@ class LoginAccountManager extends Database
         $parameters = [$_POST['username'], $password, $_POST['email'], $satuts];
         $this->sql($sql, $parameters);
 
-        $entetemail = "From: FlowDesign  <madurba.c@gmail.com>\r\n";
-        $entetemail .= "Reply-To: madurba.c@gmail.com \n";
+        $entetemail = "From: FlowDesign blog <madurba.c@gmail.com>\r\n";
+        $entetemail .= 'Reply-To: '.$email. "\n";
         $entetemail .= 'X-Mailer: PHP/'.phpversion()."\n";
         $entetemail .= "Content-Type: text/plain; charset=utf8\r\n";
         $objet = 'Confirmation de la création de votre compte sur le blog FlowDesign';
-        $message_email = 'Votre compte a bien été créé '.$_POST['username'].', vous pouvez maintenant vous connecter. Rendez-vous sur https://github.com/Madurba/blog_portofolio/login';
+        $message_email = 'Votre compte a bien été créé '.$_POST['username'].', vous pouvez maintenant vous connecter et participer à la vie du blog ! Rendez-vous vite sur https://FlowDesign.io/login 🚀';
 
         mail($_POST['email'], $objet, $message_email, $entetemail);
         $_SESSION['flash']['success'] = 'Votre compte à bien été créé.';

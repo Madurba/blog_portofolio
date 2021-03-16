@@ -3,7 +3,7 @@
 namespace App\Manager;
 
 /**
- * FromManager gère le formulaire de contact de la page d'accueil.
+ * FormManager gère le formulaire de contact de la page d'accueil.
  */
 class FormManager
 {

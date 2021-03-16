@@ -5,6 +5,16 @@ Cette application est issue d'un projet OpenClassrooms dans le cadre d'une soute
 
 ## Tracklist
 
+page d'accueil ;
+page listant l’ensemble des blog posts ;
+page affichant un blog post ;
+page permettant d’ajouter un blog post ;
+page permettant de modifier un blog post ;
+pages permettant de modifier/supprimer un blog post ;
+pages de connexion/enregistrement des utilisateurs.
+
+Vous développerez une partie administration sécurisée qui devra être accessible uniquement aux utilisateurs inscrits et validés.
+
 ### Perequisites
 
 * PHP 7, MySQL, Apache, Composer. Twig. Sendmail.
