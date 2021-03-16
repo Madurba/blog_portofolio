@@ -6,7 +6,7 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 /**
- * TwigRenderer >> Twig symfony moteur de template.
+ * TwigRenderer >> Twig Symfony moteur de template.
  */
 class TwigRenderer
 {

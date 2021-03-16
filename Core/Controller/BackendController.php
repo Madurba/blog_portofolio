@@ -61,7 +61,7 @@ class BackendController
         if ($affectedLines === false) {
             $_SESSION['flash']['danger'] = 'Impossible de valider le commentaire !';
         } else {
-            $_SESSION['flash']['success'] = 'Votre commentaire a bien été valider.';
+            $_SESSION['flash']['success'] = 'Votre commentaire a bien été validé.';
         }
         header('Location: /admin');
     }
@@ -87,9 +87,9 @@ class BackendController
 
         $affectedLines = $this->postManager->addpost($title, $idAuthor, $chapo, $content, $idUser);
         if ($affectedLines === false) {
-            $_SESSION['flash']['danger'] = 'Impossible d\'ajouter cette article.';
+            $_SESSION['flash']['danger'] = 'Impossible d\'ajouter cet article.';
         } else {
-            $_SESSION['flash']['success'] = 'Votre article a bien été ajouter.';
+            $_SESSION['flash']['success'] = 'Votre article a bien été ajouté.';
         }
         header('Location: /admin');
     }
@@ -117,9 +117,9 @@ class BackendController
 
         $affectedLines = $this->postManager->setPost($id, $title, $idAuthor, $chapo, $content, $idUser);
         if ($affectedLines === false) {
-            $_SESSION['flash']['danger'] = 'Impossible de modifier cette article.';
+            $_SESSION['flash']['danger'] = 'Impossible de modifier cet article.';
         } else {
-            $_SESSION['flash']['success'] = 'Votre article a bien été modifier.';
+            $_SESSION['flash']['success'] = 'Votre article a bien été modifié.';
         }
         header('Location: /admin');
     }
@@ -130,9 +130,9 @@ class BackendController
 
         $affectedLines = $this->postManager->removePost($postId);
         if ($affectedLines === false) {
-            $_SESSION['flash']['danger'] = 'Impossible de suprrimer cette article.';
+            $_SESSION['flash']['danger'] = 'Impossible de supprimer cet article.';
         } else {
-            $_SESSION['flash']['success'] = 'Votre article a bien été supprimer.';
+            $_SESSION['flash']['success'] = 'Votre article a bien été supprimé.';
         }
         header('Location: /admin');
     }
@@ -173,7 +173,7 @@ class BackendController
         header('Location: /admin');
     }
 
-    public function erroView($errorMessage)
+    public function errorView($errorMessage)
     {
         $this->renderer->render('frontend/errorView', ['data_message' => $errorMessage]);
         $_SESSION['flash'] = array();

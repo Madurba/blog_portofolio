@@ -45,7 +45,7 @@ try {
     $router->get('/logout', 'Frontend#logout');
     $router->get('/', 'Frontend#homeView');
     // 404 ERROR
-    $router->get('/404', 'Frontend#erroView');
+    $router->get('/404', 'Frontend#errorView');
     // RUN ROUTE
     $router->run();
 } catch (\Exception $e) {

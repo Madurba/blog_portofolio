@@ -36,6 +36,8 @@ class Router
         return $route;
     }
 
+    // crée l'objet controller et appel les méthodes
+
     public function run()
     {
         if (!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {

@@ -137,7 +137,7 @@ class FrontendController
     /**
      * Affiche un article et ses commentaires.
      *
-     * @param int $id id du l'article
+     * @param int $id id de l'article
      */
     public function post($id)
     {
@@ -161,7 +161,7 @@ class FrontendController
     /**
      * Affiche l'exception 404.
      */
-    public function erroView()
+    public function errorView()
     {
         if (!isset($_SESSION['errorMessage'])) {
             $_SESSION['errorMessage'] = 'Page not found.';

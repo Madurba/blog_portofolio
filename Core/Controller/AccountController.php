@@ -72,7 +72,7 @@ class AccountController
         if ($affectedLines === false) {
             $_SESSION['flash']['danger'] = 'Impossible d\'ajouter le commentaire !';
         } else {
-            $_SESSION['flash']['success'] = 'Votre commentaire a bien été ajouter.';
+            $_SESSION['flash']['success'] = 'Votre commentaire a bien été ajouté.';
         }
         header('Location: /user');
     }
@@ -88,7 +88,7 @@ class AccountController
         if ($affectedLines === false) {
             $_SESSION['flash']['danger'] = 'Impossible de modifier le commentaire !';
         } else {
-            $_SESSION['flash']['success'] = 'Votre commentaire a bien été modifier.';
+            $_SESSION['flash']['success'] = 'Votre commentaire a bien été modifié.';
         }
         header('Location: /user');
     }
@@ -105,13 +105,13 @@ class AccountController
             if ($affectedLines === false) {
                 $_SESSION['flash']['danger'] = 'Impossible de suprrimer ce commentaire.';
             } else {
-                $_SESSION['flash']['success'] = 'Votre commentaire a bien été supprimer.';
+                $_SESSION['flash']['success'] = 'Votre commentaire a bien été supprimé.';
             }
         }
         header('Location: /user');
     }
 
-    public function erroView($errorMessage)
+    public function errorView($errorMessage)
     {
         $this->renderer->render('frontend/errorView', ['data_message' => $errorMessage]);
         $_SESSION['flash'] = array();
