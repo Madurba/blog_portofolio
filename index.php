@@ -9,7 +9,6 @@ if (empty($_GET['url'])) {
 }
 
 // Active debug mode
-
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
