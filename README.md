@@ -2,7 +2,7 @@
 
 CodacyAnalyzer 
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0af6940fc6f9443e84ca37d302d6476f)](https://www.codacy.com/gh/Madurba/blog_portofolio/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Madurba/blog_portofolio&amp;utm_campaign=Badge_Grade)
+[Codacy Badge](https://app.codacy.com/project/badge/Grade/0af6940fc6f9443e84ca37d302d6476f)](https://www.codacy.com/gh/Madurba/blog_portofolio/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Madurba/blog_portofolio&amp;utm_campaign=Badge_Grade)
 
 Bienvenue sur mon blog portofolio, j'y présente mon parcours, mes humeurs et les trends autour de la programmation ;)
 Cette application est issue d'un projet OpenClassrooms dans le cadre d'une soutenance notée liée au parcours diplomant Developpeur d'application web PHP/symfony 💪🥬.
