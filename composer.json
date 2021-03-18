@@ -18,5 +18,8 @@
             "email": "madurba.c@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
 }
